@@ -1,0 +1,139 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Your SMRT setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0}body{background:#0C1830;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1B2536;-webkit-font-smoothing:antialiased}
+.app{max-width:440px;margin:0 auto;min-height:100vh;min-height:100dvh;background:#F5F7FB;display:flex;flex-direction:column}
+.top{background:#16294B;padding:18px 20px 16px;position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;justify-content:space-between}
+.mark{color:#fff;font-size:16px;font-weight:600;letter-spacing:.16em}
+.count{color:#9DB2D6;font-size:12px;font-weight:500}
+.track{height:4px;background:#2A3E63;border-radius:999px;margin-top:13px;overflow:hidden}
+.fill{height:100%;background:#9E1C24;border-radius:999px;transition:width .35s cubic-bezier(.4,0,.2,1)}
+.who{display:flex;align-items:center;gap:10px;padding:15px 20px 0}
+.ava{width:34px;height:34px;border-radius:50%;background:#9E1C24;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;flex:0 0 auto}
+.wl{font-size:12.5px;color:#6B7688}.wl b{color:#16294B;font-weight:600}
+.body{padding:10px 20px 8px;flex:1}
+.h{font-family:'Space Grotesk',sans-serif;font-size:25px;font-weight:500;color:#16294B;margin:14px 0 8px;line-height:1.18;letter-spacing:-.01em}
+.p{font-size:14px;color:#55606F;line-height:1.62;margin:0 0 16px}
+.lockrow{display:flex;gap:8px;margin-bottom:15px}
+.lock{flex:1;background:#EAEFF7;border-radius:11px;padding:10px 12px}
+.lk{font-size:10.5px;color:#8291A8;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.lv{font-size:14px;color:#22314F;font-weight:500;margin-top:2px}
+.card{background:#fff;border:1px solid #E4E8F0;border-radius:14px;margin-bottom:11px;overflow:hidden}
+.ch{display:flex;align-items:center;gap:11px;padding:14px;cursor:pointer}
+.ci{width:30px;height:30px;border-radius:8px;background:#EAF0FA;color:#16294B;display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 auto}
+.ct{font-size:14.5px;font-weight:600;color:#1B2536;flex:1}
+.cchk{font-size:17px;color:#CBD3E0}.card.ok .cchk{color:#2E9E6B}
+.cv{color:#9AA6B6;font-size:17px;transition:transform .22s ease}.card.open .cv{transform:rotate(180deg)}
+.cbody{max-height:0;overflow:hidden;transition:max-height .3s ease}.card.open .cbody{max-height:460px}
+.quote{font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.5;color:#25314c;padding:0 15px 6px}
+.sub{font-size:13px;color:#66707E;line-height:1.55;padding:6px 15px 13px}
+.cact{display:flex;gap:8px;padding:0 15px 14px}
+.pill{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;padding:10px;border-radius:9px;border:1px solid #D8DEE9;background:#fff;color:#48525F;cursor:pointer;transition:all .15s;font-family:inherit}
+.pill.ok.sel{background:#123E2B;border-color:#123E2B;color:#fff}.pill.no.sel{background:#FCEDEC;border-color:#9E1C24;color:#B23227}
+.field{margin-bottom:15px}
+.lab{font-size:13px;font-weight:600;color:#3A4557;margin-bottom:7px;display:block}.lab span{color:#A7B0BF;font-weight:400}
+.in{width:100%;height:48px;border:1px solid #D8DEE9;border-radius:11px;padding:0 14px;font-size:15px;color:#1B2536;background:#fff;font-family:inherit}
+.in:focus{outline:none;border-color:#16294B;box-shadow:0 0 0 3px #E7EEF9}
+.in.pre{background:#F3F6FB;color:#3C4859}
+select.in{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%236B7688' stroke-width='2'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.name{height:56px;font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:500;color:#16294B}
+.hint{font-size:12px;color:#93A0B2;margin-top:8px;display:flex;align-items:center;gap:5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:flex;align-items:center;gap:6px;font-size:13px;padding:9px 13px;border-radius:999px;background:#EAF0FA;color:#16294B;font-weight:500}
+.chip i{cursor:pointer;color:#8090AC}.chip.add{background:#fff;border:1px dashed #C4CDDC;color:#6B7688;cursor:pointer}
+.days{display:flex;gap:6px;margin-bottom:15px}
+.day{flex:1;text-align:center;padding:12px 0;border-radius:10px;border:1px solid #D8DEE9;font-size:13px;font-weight:600;color:#6B7688;cursor:pointer;background:#fff}.day.on{background:#16294B;border-color:#16294B;color:#fff}
+.two{display:flex;gap:10px}.two .field{flex:1}
+.info{display:flex;gap:11px;background:#F0F5EF;border:1px solid #D6E5D2;border-radius:12px;padding:13px 14px;margin-bottom:6px}
+.info i{color:#2E7D4F;font-size:19px;flex:0 0 auto;margin-top:1px}.info div{font-size:13px;color:#3B5741;line-height:1.5}.info b{color:#234A31;font-weight:600}
+.note{font-size:12px;color:#93A0B2;margin:-6px 0 14px}
+.drop{border:1px dashed #C4CDDC;border-radius:12px;background:#fff;padding:20px;text-align:center;color:#6B7688;font-size:13px;cursor:pointer}.drop i{font-size:24px;color:#16294B}
+.done{text-align:center;padding:34px 10px}
+.dc{width:66px;height:66px;border-radius:50%;background:#123E2B;color:#fff;display:flex;align-items:center;justify-content:center;font-size:33px;margin:0 auto 18px}
+.nav{display:flex;gap:10px;padding:14px 20px calc(18px + env(safe-area-inset-bottom));background:#F5F7FB;position:sticky;bottom:0}
+.btn{flex:1;height:50px;border-radius:13px;font-size:15px;font-weight:600;cursor:pointer;background:#16294B;color:#fff;display:flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;border:none}
+.btn.ghost{flex:0 0 50px;background:#fff;color:#16294B;border:1px solid #16294B}
+.btn:active{transform:scale(.99)}
+.step{display:none}.step.on{display:block;animation:in .26s cubic-bezier(.4,0,.2,1)}
+@keyframes in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.step.on{animation:none}.fill,.cbody,.cv{transition:none}}
+
+.rail{display:none;flex:0 0 380px;background:#16294B;color:#fff;padding:46px 42px;flex-direction:column}
+.rmark{font-size:18px;font-weight:600;letter-spacing:.18em;color:#fff}
+.rail-who{display:flex;align-items:center;gap:14px;margin:42px 0 4px}
+.rava{width:54px;height:54px;border-radius:50%;background:#9E1C24;color:#fff;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:600;font-family:'Space Grotesk',sans-serif}
+.rname{font-family:'Space Grotesk',sans-serif;font-size:23px;font-weight:500}
+.rrole{font-size:13px;color:#9DB2D6;margin-top:3px}
+.rail-intro{font-size:15px;color:#B7C6DE;line-height:1.6;margin:16px 0 36px;font-family:'Space Grotesk',sans-serif}
+.rsteps{display:flex;flex-direction:column;gap:2px;margin-top:auto}
+.rstep{display:flex;align-items:center;gap:13px;font-size:14px;color:#7E92B4;padding:9px 0;font-weight:500}
+.rstep .rdot{width:9px;height:9px;border-radius:50%;border:1.5px solid #46587C;flex:0 0 auto;transition:all .2s}
+.rstep.active{color:#fff}.rstep.active .rdot{background:#9E1C24;border-color:#9E1C24}
+.rstep.done{color:#AEBFD8}.rstep.done .rdot{background:#5DCAA5;border-color:#5DCAA5}
+@media(min-width:900px){
+ body{background:#0C1830;display:flex;min-height:100vh;padding:34px 24px}
+ .app{width:100%;max-width:1000px;min-height:500px;margin:auto;flex-direction:row;border-radius:24px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.45)}
+ .rail{display:flex;padding:38px 40px}.rail-who{margin:28px 0 4px}.rail-intro{margin:14px 0 24px}.rsteps{margin-top:26px}.rstep{padding:7px 0}
+ .top{display:none}.who{display:none}
+ .main{flex:1;display:flex;flex-direction:column;background:#F5F7FB}
+ .body{padding:34px 56px;max-width:600px;width:100%;margin:0 auto;flex:1;display:flex;flex-direction:column;justify-content:center}
+ .h{font-size:30px;margin-top:0}
+ .nav{padding:16px 60px 30px;max-width:640px;margin:0 auto;width:100%;justify-content:flex-end;position:static}
+ .btn{flex:0 0 auto;min-width:210px;padding:0 26px}
+ .btn.ghost{min-width:0;width:54px;flex:0 0 54px}
+}</style></head><body><div class="app"><aside class="rail"><div class="rmark">SMRT</div><div class="rail-who"><div class="rava" id="railAva">F</div><div><div class="rname"><span class="nm">Friday</span></div><div class="rrole">your assistant</div></div></div><div class="rail-intro">Let’s get you set up. A few minutes, and I’m ready for your clients.</div><div class="rsteps"><div class="rstep" data-r="1"><span class="rdot"></span>Name me</div><div class="rstep" data-r="2"><span class="rdot"></span>My voice</div><div class="rstep" data-r="3"><span class="rdot"></span>Your details</div><div class="rstep" data-r="4"><span class="rdot"></span>Coverage</div><div class="rstep" data-r="5"><span class="rdot"></span>Availability</div><div class="rstep" data-r="6"><span class="rdot"></span>Texting setup</div><div class="rstep" data-r="7"><span class="rdot"></span>Extras</div><div class="rstep" data-r="8"><span class="rdot"></span>Done</div></div></aside><div class="main">
+<div class="top"><div class="brand"><span class="mark">SMRT</span><span class="count" id="C">Step 1 of 8</span></div><div class="track"><div class="fill" id="F" style="width:12.5%"></div></div></div>
+<div class="who"><div class="ava" id="Ava">F</div><div class="wl"><b class="nm">Friday</b> &middot; your assistant</div></div>
+<div class="body">
+<div class="step on" data-s="1"><div class="h">Hi Jordan, I'm your new assistant.</div><div class="p">Luke built me from our call, and I'll be the one talking with your clients every day. Before anything else, what should they call me?</div><div class="field"><label class="lab">Name your assistant</label><input class="in name" id="nameIn" data-path="agent_info.ai_coordinator_name" value="Friday" oninput="rename(this.value)"><div class="hint"><i class="ti ti-info-circle"></i>Your clients see this name in every text. You can change it later.</div></div></div>
+<div class="step" data-s="2"><div class="h">Here's how I'll sound.</div><div class="p">This is the voice I'll use with your clients, drawn from what you told us. Approve what fits, flag anything that's off.</div>
+<div class="card open"><div class="ch" onclick="tog(this.parentElement)"><div class="ci"><i class="ti ti-heart-handshake"></i></div><div class="ct">Who you are</div><i class="ti ti-circle-check cchk"></i><i class="ti ti-chevron-down cv"></i></div><div class="cbody"><div class="quote">"I didn't choose real estate because I loved houses. I chose it because I couldn't stop asking questions."</div><div class="sub">A Washington transplant who came for Boise State and never left. Nine years in the Treasure Valley, from first time buyers to investments and luxury.</div><div class="cact"><div class="pill ok" onclick="pick(this)"><i class="ti ti-check"></i>Sounds like me</div><div class="pill no" onclick="pick(this)"><i class="ti ti-pencil"></i>Tweak</div></div></div></div>
+<div class="card"><div class="ch" onclick="tog(this.parentElement)"><div class="ci"><i class="ti ti-briefcase"></i></div><div class="ct">How you work</div><i class="ti ti-circle-check cchk"></i><i class="ti ti-chevron-down cv"></i></div><div class="cbody"><div class="quote">"I'm a consultant, not a salesperson. I give you the information so you can make the right call, even if that's to wait."</div><div class="sub">Runs on systems and straight talk. I'll pass on a client who isn't the right fit, and I've grown every time I made room.</div><div class="cact"><div class="pill ok" onclick="pick(this)"><i class="ti ti-check"></i>Sounds like me</div><div class="pill no" onclick="pick(this)"><i class="ti ti-pencil"></i>Tweak</div></div></div></div>
+<div class="card"><div class="ch" onclick="tog(this.parentElement)"><div class="ci"><i class="ti ti-message-2"></i></div><div class="ct">How you communicate</div><i class="ti ti-circle-check cchk"></i><i class="ti ti-chevron-down cv"></i></div><div class="cbody"><div class="quote">"I call first, text second. I ask more than I talk, keep it short, and put everything in writing."</div><div class="sub">I treat clients like family, not transactions. Warmth over polish.</div><div class="cact"><div class="pill ok" onclick="pick(this)"><i class="ti ti-check"></i>Sounds like me</div><div class="pill no" onclick="pick(this)"><i class="ti ti-pencil"></i>Tweak</div></div></div></div>
+<div class="card"><div class="ch" onclick="tog(this.parentElement)"><div class="ci"><i class="ti ti-award"></i></div><div class="ct">What makes you different</div><i class="ti ti-circle-check cchk"></i><i class="ti ti-chevron-down cv"></i></div><div class="cbody"><div class="quote">"A teaching degree put to work, and a business built entirely on referrals and repeat clients."</div><div class="sub">28 doors under management alongside luxury and investment sales, with real depth in Meridian schools and neighborhoods.</div><div class="cact"><div class="pill ok" onclick="pick(this)"><i class="ti ti-check"></i>Sounds like me</div><div class="pill no" onclick="pick(this)"><i class="ti ti-pencil"></i>Tweak</div></div></div></div></div>
+<div class="step" data-s="3"><div class="h">Let's confirm your details.</div><div class="p">I picked these up from our call. Add the couple things I'm missing.</div><div class="lockrow"><div class="lock"><div class="lk">Name</div><div class="lv">Jordan Ellis</div></div><div class="lock"><div class="lk">Title</div><div class="lv">REALTOR&reg;</div></div></div><div class="field"><label class="lab">Best number for leads to reach you</label><input class="in" placeholder="(208) 555 0142" data-path="agent_info.agent_phone"></div><div class="field"><label class="lab">Email <span>&middot; confirmed</span></label><input class="in pre" value="jordan@example.com"></div><div class="field"><label class="lab">Office or mailing address</label><input class="in" placeholder="Start typing your address" data-path="agent_info.office_address"></div></div>
+<div class="step" data-s="4"><div class="h">Where do you work?</div><div class="p">Here's what I gathered. Add or remove anything, this is yours to set.</div><div class="field"><label class="lab">Coverage area</label><div class="chips"><span class="chip">Meridian <i class="ti ti-x"></i></span><span class="chip">Eagle <i class="ti ti-x"></i></span><span class="chip">Caldwell <i class="ti ti-x"></i></span><span class="chip">Mountain Home <i class="ti ti-x"></i></span><span class="chip">Emmett <i class="ti ti-x"></i></span><span class="chip add"><i class="ti ti-plus"></i>Add area</span></div></div><div class="field"><label class="lab">Preferred area code for my texting line</label><input class="in" placeholder="208" data-path="agent_info.preferred_area_codes"></div></div>
+<div class="step" data-s="5"><div class="h">When are you available?</div><div class="p">So I only book appointments when you actually want them.</div><div class="field"><label class="lab">Working days</label><div class="days"><div class="day on" onclick="this.classList.toggle('on')">M</div><div class="day on" onclick="this.classList.toggle('on')">T</div><div class="day on" onclick="this.classList.toggle('on')">W</div><div class="day on" onclick="this.classList.toggle('on')">T</div><div class="day on" onclick="this.classList.toggle('on')">F</div><div class="day" onclick="this.classList.toggle('on')">S</div><div class="day" onclick="this.classList.toggle('on')">S</div></div></div><div class="two"><div class="field"><label class="lab">Start</label><input class="in" value="9:00 AM"></div><div class="field"><label class="lab">End</label><input class="in" value="6:00 PM"></div></div><div class="two"><div class="field"><label class="lab">Appointment length</label><select class="in"><option>30 min</option><option>45 min</option><option>60 min</option></select></div><div class="field"><label class="lab">Buffer between</label><select class="in"><option>None</option><option>15 min</option><option>30 min</option></select></div></div><div class="info"><i class="ti ti-mail"></i><div>Your weekly market update goes out every <b>Tuesday at 8am</b>. I've got that handled, nothing for you to set.</div></div></div>
+<div class="step" data-s="6"><div class="h">The one required part.</div><div class="p">Carriers need this before I can text on your behalf. It's a legal thing, not a me thing.</div><div class="field"><label class="lab">Legal business name</label><input class="in" placeholder="As registered with the IRS" data-path="a2p_registration.brand.legal_business_name"></div><div class="two"><div class="field"><label class="lab">EIN</label><input class="in" placeholder="12-3456789" data-path="a2p_registration.brand.ein"></div><div class="field"><label class="lab">Business type</label><select class="in"><option>Sole proprietor</option><option>LLC</option><option>Corporation</option><option>Partnership</option></select></div></div><div class="field"><label class="lab">DBA or brand name <span>&middot; optional</span></label><input class="in" placeholder="If different from legal name" data-path="a2p_registration.brand.dba_name"></div><div class="field"><label class="lab">Registered business address</label><input class="in" placeholder="Street, city, state, zip" data-path="a2p_registration.brand.registered_address"></div><div class="two"><div class="field"><label class="lab">State registered</label><input class="in" placeholder="ID" data-path="a2p_registration.brand.state_of_registration"></div><div class="field"><label class="lab">Business website</label><input class="in" placeholder="optional" data-path="a2p_registration.brand.company_website"></div></div><div class="field"><label class="lab">Authorized contact</label><input class="in" placeholder="Full name" data-path="a2p_registration.authorized_contact.name"></div><div class="two"><div class="field"><label class="lab">Their email</label><input class="in" placeholder="name@..." data-path="a2p_registration.authorized_contact.email"></div><div class="field"><label class="lab">Their title</label><input class="in" placeholder="Owner" data-path="a2p_registration.authorized_contact.title"></div></div></div>
+<div class="step" data-s="7"><div class="h">Anything I should know?</div><div class="p">Share your headshot, plus any playbooks or docs that help me represent you well. Optional, skip if you'd rather.</div><div class="field"><label class="lab">Your headshot</label><div class="drop"><i class="ti ti-camera"></i><div style="margin-top:7px">Tap to upload a photo</div></div></div><div class="field"><label class="lab">SOPs, playbooks, or docs</label><div class="drop"><i class="ti ti-upload"></i><div style="margin-top:7px">Tap to upload, or skip for now</div></div></div></div>
+<div class="step" data-s="8"><div class="done"><div class="dc"><i class="ti ti-check"></i></div><div class="h" style="margin-bottom:10px">You're all set, Jordan.</div><div class="p" style="text-align:center">I'll take it from here. Luke reviews your approvals, and I'll be live for your clients this week. Talk soon, it's <span class="nm">Friday</span>.</div></div></div>
+</div>
+<div class="nav"><div class="btn ghost" id="Back" role="button" onclick="go(-1)" style="display:none"><i class="ti ti-arrow-left"></i></div><div class="btn" id="Next" role="button" onclick="go(1)">That's my name<i class="ti ti-arrow-right"></i></div></div>
+</div></div><script>
+var cur=1,total=8;var labels={1:"That's my name",2:"These look right",3:"Continue",4:"Continue",5:"Continue",6:"Continue",7:"Finish up",8:"Start over"};
+function rename(v){v=(v||'').trim();var s=v||'your assistant';document.querySelectorAll('.nm').forEach(function(e){e.textContent=s;});document.getElementById('Ava').textContent=v?v[0].toUpperCase():'?';}
+function render(){document.querySelectorAll('.step').forEach(function(x){x.classList.toggle('on',+x.dataset.s===cur);});document.getElementById('C').textContent='Step '+cur+' of '+total;document.getElementById('F').style.width=(cur/total*100)+'%';document.getElementById('Back').style.display=cur===1?'none':'flex';var n=document.getElementById('Next');n.innerHTML=labels[cur]+(cur===total?'':' <i class="ti ti-arrow-right"></i>');n.onclick=(cur===total)?function(){cur=1;render();window.scrollTo(0,0);}:function(){go(1);};window.scrollTo(0,0);}
+function go(d){cur=Math.min(total,Math.max(1,cur+d));render();}
+function tog(c){c.classList.toggle('open');}
+function pick(el){var row=el.parentElement,card=row.closest('.card');row.querySelectorAll('.pill').forEach(function(p){p.classList.remove('sel');});el.classList.add('sel');if(card)card.classList.toggle('ok',el.classList.contains('ok'));}
+window.rename=rename;window.go=go;window.tog=tog;window.pick=pick;render();
+</script><script>(function(){function sync(){var a=document.querySelector(".step.on");var c=a?+a.dataset.s:1;document.querySelectorAll(".rstep").forEach(function(s){var n=+s.dataset.r;s.classList.toggle("active",n===c);s.classList.toggle("done",n<c);});var ra=document.getElementById("railAva"),ni=document.getElementById("nameIn");if(ra&&ni)ra.textContent=ni.value?ni.value.trim()[0].toUpperCase():"?";}var _r=window.render;window.render=function(){if(_r)_r();sync();};var _n=window.rename;window.rename=function(v){if(_n)_n(v);sync();};if(window.render)window.render();sync();})();</script><script>
+(function(){
+  var SB='https://kfoijgcbkjeizxxyiwxv.supabase.co', ANON='sb_publishable_jM35zB6DV8fwDR9YgsiEkA_QZ-Oq-6L';
+  var qs=new URLSearchParams(location.search); var token=qs.get('token')||(location.pathname.match(/hwk_[A-Za-z0-9_-]{20,}/)||[])[0];
+  if(!token) return; // no token => static preview
+  function h(id){return document.getElementById(id);}
+  function put(path,val){ if(val==null||val==='') return; var el=document.querySelector('[data-path="'+path+'"]'); if(el){ if('value' in el) el.value=(typeof val==='object'?'':val); } }
+  fetch(SB+'/functions/v1/homework-verify',{method:'POST',headers:{'Content-Type':'application/json','apikey':ANON,'x-smrt-homework':'1'},body:JSON.stringify({token:token})})
+   .then(function(r){return r.json();}).then(function(res){
+     if(!res||!res.valid){ document.body.innerHTML='<div style="max-width:440px;margin:80px auto;font-family:sans-serif;text-align:center;color:#55606F"><h2>This link is no longer valid</h2><p>Ask Luke to resend your homework link.</p></div>'; return; }
+     var pk=res.packet||res, snap=pk.locked_snapshot||{};
+     // assistant name (customer-owned; start blank unless already chosen)
+     var coord=snap['agent_info.ai_coordinator_name']; var ni=h('nameIn'); if(ni){ ni.value=coord||''; if(window.rename) window.rename(ni.value); }
+     // voice review from the real portrait
+     var bio=snap['bio_template.full_bio']||''; var pers=snap['agent_personality.prompt']||'';
+     window.__PACKET__={token:token, packet:pk, bio:bio, personality:pers};
+     // prefill editable facts from snapshot
+     ['agent_info.agent_phone','agent_info.agent_email','agent_info.office_address','agent_info.preferred_area_codes','a2p_registration.brand.legal_business_name','a2p_registration.brand.ein','a2p_registration.authorized_contact.name'].forEach(function(p){ put(p, snap[p]); });
+     // wire submit on the final step (Done)
+     window.__submitHomework=function(){
+        var payload={}; document.querySelectorAll('[data-path]').forEach(function(el){ var p=el.dataset.path, v=(el.value||'').trim(); if(v) payload[p]=v; });
+        payload['newsletter.enabled']=true;
+        return fetch(SB+'/functions/v1/homework-submit',{method:'POST',headers:{'Content-Type':'application/json','apikey':ANON,'x-smrt-homework':'1'},body:JSON.stringify({token:token,payload:payload})}).then(function(r){return r.json();});
+     };
+   }).catch(function(){});
+})();
+</script></body></html>
