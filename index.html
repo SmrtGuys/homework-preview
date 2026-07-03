@@ -60,7 +60,31 @@ select.in{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .step{display:none}.step.on{display:block;animation:in .26s cubic-bezier(.4,0,.2,1)}
 @keyframes in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.step.on{animation:none}.fill,.cbody,.cv{transition:none}}
-</style></head><body><div class="app">
+
+.rail{display:none;flex:0 0 380px;background:#16294B;color:#fff;padding:46px 42px;flex-direction:column}
+.rmark{font-size:18px;font-weight:600;letter-spacing:.18em;color:#fff}
+.rail-who{display:flex;align-items:center;gap:14px;margin:42px 0 4px}
+.rava{width:54px;height:54px;border-radius:50%;background:#E0574C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:600;font-family:'Fraunces',serif}
+.rname{font-family:'Fraunces',serif;font-size:23px;font-weight:500}
+.rrole{font-size:13px;color:#9DB2D6;margin-top:3px}
+.rail-intro{font-size:15px;color:#B7C6DE;line-height:1.6;margin:16px 0 36px;font-family:'Fraunces',serif}
+.rsteps{display:flex;flex-direction:column;gap:2px;margin-top:auto}
+.rstep{display:flex;align-items:center;gap:13px;font-size:14px;color:#7E92B4;padding:9px 0;font-weight:500}
+.rstep .rdot{width:9px;height:9px;border-radius:50%;border:1.5px solid #46587C;flex:0 0 auto;transition:all .2s}
+.rstep.active{color:#fff}.rstep.active .rdot{background:#E0574C;border-color:#E0574C}
+.rstep.done{color:#AEBFD8}.rstep.done .rdot{background:#5DCAA5;border-color:#5DCAA5}
+@media(min-width:900px){
+ body{padding:0}
+ .app{max-width:1060px;margin:0 auto;min-height:100vh;flex-direction:row}
+ .rail{display:flex}
+ .top{display:none}.who{display:none}
+ .main{flex:1;display:flex;flex-direction:column;background:#F5F7FB;min-height:100vh}
+ .body{padding:44px 60px 14px;max-width:640px;width:100%;margin:0 auto;flex:1}
+ .h{font-size:31px;margin-top:20px}
+ .nav{padding:16px 60px 30px;max-width:640px;margin:0 auto;width:100%;justify-content:flex-end;position:static}
+ .btn{flex:0 0 auto;min-width:210px;padding:0 26px}
+ .btn.ghost{min-width:0;width:54px;flex:0 0 54px}
+}</style></head><body><div class="app"><aside class="rail"><div class="rmark">SMRT</div><div class="rail-who"><div class="rava" id="railAva">F</div><div><div class="rname"><span class="nm">Friday</span></div><div class="rrole">your assistant</div></div></div><div class="rail-intro">Let’s get you set up. A few minutes, and I’m ready for your clients.</div><div class="rsteps"><div class="rstep" data-r="1"><span class="rdot"></span>Name me</div><div class="rstep" data-r="2"><span class="rdot"></span>My voice</div><div class="rstep" data-r="3"><span class="rdot"></span>Your details</div><div class="rstep" data-r="4"><span class="rdot"></span>Coverage</div><div class="rstep" data-r="5"><span class="rdot"></span>Availability</div><div class="rstep" data-r="6"><span class="rdot"></span>Texting setup</div><div class="rstep" data-r="7"><span class="rdot"></span>Extras</div><div class="rstep" data-r="8"><span class="rdot"></span>Done</div></div></aside><div class="main">
 <div class="top"><div class="brand"><span class="mark">SMRT</span><span class="count" id="C">Step 1 of 8</span></div><div class="track"><div class="fill" id="F" style="width:12.5%"></div></div></div>
 <div class="who"><div class="ava" id="Ava">F</div><div class="wl"><b class="nm">Friday</b> &middot; your assistant</div></div>
 <div class="body">
@@ -78,7 +102,7 @@ select.in{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <div class="step" data-s="8"><div class="done"><div class="dc"><i class="ti ti-check"></i></div><div class="h" style="margin-bottom:10px">You're all set, Jordan.</div><div class="p" style="text-align:center">I'll take it from here. Luke reviews your approvals, and I'll be live for your clients this week. Talk soon, it's <span class="nm">Friday</span>.</div></div></div>
 </div>
 <div class="nav"><div class="btn ghost" id="Back" role="button" onclick="go(-1)" style="display:none"><i class="ti ti-arrow-left"></i></div><div class="btn" id="Next" role="button" onclick="go(1)">That's my name<i class="ti ti-arrow-right"></i></div></div>
-</div><script>
+</div></div><script>
 var cur=1,total=8;var labels={1:"That's my name",2:"These look right",3:"Continue",4:"Continue",5:"Continue",6:"Continue",7:"Finish up",8:"Start over"};
 function rename(v){v=(v||'').trim();var s=v||'your assistant';document.querySelectorAll('.nm').forEach(function(e){e.textContent=s;});document.getElementById('Ava').textContent=v?v[0].toUpperCase():'?';}
 function render(){document.querySelectorAll('.step').forEach(function(x){x.classList.toggle('on',+x.dataset.s===cur);});document.getElementById('C').textContent='Step '+cur+' of '+total;document.getElementById('F').style.width=(cur/total*100)+'%';document.getElementById('Back').style.display=cur===1?'none':'flex';var n=document.getElementById('Next');n.innerHTML=labels[cur]+(cur===total?'':' <i class="ti ti-arrow-right"></i>');n.onclick=(cur===total)?function(){cur=1;render();window.scrollTo(0,0);}:function(){go(1);};window.scrollTo(0,0);}
@@ -86,4 +110,4 @@ function go(d){cur=Math.min(total,Math.max(1,cur+d));render();}
 function tog(c){c.classList.toggle('open');}
 function pick(el){var row=el.parentElement,card=row.closest('.card');row.querySelectorAll('.pill').forEach(function(p){p.classList.remove('sel');});el.classList.add('sel');if(card)card.classList.toggle('ok',el.classList.contains('ok'));}
 window.rename=rename;window.go=go;window.tog=tog;window.pick=pick;render();
-</script></body></html>
+</script><script>(function(){function sync(){var a=document.querySelector(".step.on");var c=a?+a.dataset.s:1;document.querySelectorAll(".rstep").forEach(function(s){var n=+s.dataset.r;s.classList.toggle("active",n===c);s.classList.toggle("done",n<c);});var ra=document.getElementById("railAva"),ni=document.getElementById("nameIn");if(ra&&ni)ra.textContent=ni.value?ni.value.trim()[0].toUpperCase():"?";}var _r=window.render;window.render=function(){if(_r)_r();sync();};var _n=window.rename;window.rename=function(v){if(_n)_n(v);sync();};if(window.render)window.render();sync();})();</script></body></html>
